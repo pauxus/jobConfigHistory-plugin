@@ -1,5 +1,7 @@
 package hudson.plugins.jobConfigHistory;
 
+import static java.util.logging.Level.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -110,7 +112,7 @@ public class JobConfigHistoryRootAction extends JobConfigHistoryBaseAction imple
         }
 
         if (!historyRootDir.isDirectory()) {
-            LOG.fine(historyRootDir + " is not a directory, assuming that no history exists yet.");
+            LOG.log(FINE, "{0} is not a directory, assuming that no history exists yet.", historyRootDir);
         } else {
             final File[] itemDirs = historyRootDir.listFiles();
             for (final File itemDir : itemDirs) {
@@ -147,7 +149,7 @@ public class JobConfigHistoryRootAction extends JobConfigHistoryBaseAction imple
         }
 
         if (!historyRootDir.isDirectory()) {
-            LOG.fine(historyRootDir + " is not a directory, assuming that no history exists yet.");
+            LOG.log(FINE, "{0} is not a directory, assuming that no history exists yet.", historyRootDir);
         } else {
             final File[] itemDirs;
             if ("deleted".equals(type)) {
